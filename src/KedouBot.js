@@ -4,15 +4,15 @@ export default class KedouBot {
     constructor(name = "小机器人", from = "juejin") {
         this.name = name
         this.from = from
-        this.momentum = "0.000"
+        this.momentum = 0
         this.sex = ""
         this.color = "#ffffff" // 设置颜色
         this.size = 4 // 设置大小
         this.from = from
         this.light = "on" // 设置是否发光
-        this.x = "0" // X坐标
-        this.y = "0" // Y坐标
-        this.angle = "0" //角度
+        this.x = 0 // X坐标
+        this.y = 0 // Y坐标
+        this.angle = 0 //角度
         this.connect = websocket.connect("ws://kedou.workerman.net:8280/")
         this.connect.on("text", (data) => {
             this.messageFromServer(data)
@@ -21,7 +21,7 @@ export default class KedouBot {
 
     // 获取随机数
     random(start, end) {
-        return + (Math.random() * (end - start) + start).toFixed(3)
+        return Math.random() * (end - start) + start
     }
 
     // 随机位置
@@ -49,13 +49,13 @@ export default class KedouBot {
             name: this.name,
             icon: {
                 color: this.color,
-                size: this.size,
+                size: '' + this.size,
                 from: this.from,
                 light: this.light
             },
-            x: this.x,
-            y: this.y,
-            angle: this.angle,
+            x: this.x.toFixed(3),
+            y: this.y.toFixed(3),
+            angle: this.angle.toFixed(3),
             momentum: this.momentum,
             sex: this.sex,
         })
