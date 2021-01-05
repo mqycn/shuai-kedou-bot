@@ -1,0 +1,15 @@
+{
+  "name": "kedou",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/KedouBot.js",
+  "scripts": {
+    "test": "node demo/clock.js"
+  },
+  "type": "module",
+  "author": "mqycn",
+  "license": "ISC",
+  "dependencies": {
+    "nodejs-websocket": "^1.7.2"
+  }
+}
