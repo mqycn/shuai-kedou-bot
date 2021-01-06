@@ -7,15 +7,18 @@ const lastDate = {
         return date.getHours() + ':00'
     }
 }
+lastDate.last = lastDate.now()
 
 let bot = new KedouBot('报时机器人')
-bot.color = '#FF0000'
-bot.light = "on"
 bot.onSend((str) => {
     console.log(`${bot.name} -> ${str}`)
 })
 bot.onMessage((str) => {
     console.log(`${bot.name} <- ${str}`)
+    if (str.indexOf('"message":"now"') != -1 || str.indexOf('"message":"time"') != -1) {
+        const date = new Date()
+        bot.say(`当前时间：${date.getHours()}:${date.getMinutes()}`)
+    }
 })
 
 setInterval(() => {
@@ -25,4 +28,4 @@ setInterval(() => {
         bot.say(`当前时间：${now}`)
         lastDate.last = now
     }
-}, Math.random() * 500 + 1000)
+}, Math.random() * 500 + 10000)
