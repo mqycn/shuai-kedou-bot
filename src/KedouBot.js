@@ -1,5 +1,9 @@
 import websocket from "nodejs-websocket"
 
+/**
+ * 现在主类已经同时 支持 Nodejs 和 Chrome控制台环境
+ * Chrome控制台环境请从 class 开始复制
+ */
 export default class KedouBot {
     constructor(name = "小机器人", from = "juejin") {
         this.name = name
@@ -13,10 +17,25 @@ export default class KedouBot {
         this.x = 0 // X坐标
         this.y = 0 // Y坐标
         this.angle = 0 //角度
-        this.connect = websocket.connect("ws://kedou.workerman.net:8280/")
-        this.connect.on("text", (data) => {
-            this.messageFromServer(data)
-        })
+        this.connect()
+    }
+
+    // 连接服务器
+    connect() {
+        const server = "ws://kedou.workerman.net:8280/"
+        if (typeof WebSocket == 'function') {
+            // 浏览器环境
+            this.$connect = new WebSocket(server)
+            this.$connect.onmessage = (event) => {
+                this.messageFromServer(event.data)
+            }
+        } else {
+            // NodeJS 环境
+            this.$connect = websocket.connect(server)
+            this.$connect.on("text", (data) => {
+                this.messageFromServer(data)
+            })
+        }
     }
 
     // 获取随机数
@@ -80,7 +99,7 @@ export default class KedouBot {
     sendToServer(obj) {
         const str = JSON.stringify(obj)
         this._onSend && this._onSend(str)
-        this.connect && this.connect.send(str);
+        this.$connect && this.$connect.send(str);
     }
     onSend(cb) {
         this._onSend = cb
