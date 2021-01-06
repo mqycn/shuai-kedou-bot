@@ -4,10 +4,10 @@ export default class KedouBot {
     constructor(name = "小机器人", from = "juejin") {
         this.name = name
         this.from = from
-        this.momentum = 0
+        this.momentum = 2
         this.sex = ""
-        this.color = "#ffffff" // 设置颜色
-        this.size = 4 // 设置大小
+        this.color = "#DB524A" // 设置颜色
+        this.size = 8 // 设置大小
         this.from = from
         this.light = "on" // 设置是否发光
         this.x = 0 // X坐标
@@ -49,7 +49,7 @@ export default class KedouBot {
             name: this.name,
             icon: {
                 color: this.color,
-                size: '' + this.size,
+                size: this.size,
                 from: this.from,
                 light: this.light
             },
