@@ -2,6 +2,7 @@ import KedouBot from '../src/KedouBot.js'
 
 let userData = ""
 const users = {}
+const userMap = () => JSON.stringify(Object.keys(users).map(userId => userId))
 
 const bot = new KedouBot('小雷达')
 bot.momentum = 0
@@ -49,7 +50,7 @@ setInterval(() => {
     bot.x = bot.x + bot.random(-30, 30)
     bot.y = bot.y + bot.random(-30, 30)
     bot.update()
-    const currentData = JSON.stringify(users)
+    const currentData = userMap()
     if (currentData != userData) {
         userData = currentData
         console.log("userlist", users)
