@@ -1,6 +1,24 @@
 # 蝌蚪机器人
 
-机器人以 vscode扩展 我爱掘金 中的蝌蚪池塘为基础开发，兼容 workerman 开发的蝌蚪池塘。
+机器人以 vscode扩展 **我爱掘金** 中的蝌蚪池塘为基础开发，兼容 workerman 开发的蝌蚪池塘。
+
+
+
+## 停止维护声明
+
+因为 vscode扩展 **我爱掘金** 中数据中的icon的已经被加密，现在 运行中的四个机器人已经永远下架。
+
+在 workerman 开发的蝌蚪池塘 还可以使用。
+
+**我爱掘金** 作者 [**大帅**](https://github.com/ezshine) 已经增加了蝌蚪机器人纪念去，如果你不怕戴手铐，欢迎过来看望被关在监狱的几个可怜的小机器人，坐标：**2021106**,**2021111**，分别对应本项目的开源日期和失效日期
+
+![](image/monument.png)
+
+
+
+如果还没有安装 vscode扩展 我爱掘金，可以点击这里安装 [**我爱掘金**](https://marketplace.visualstudio.com/items?itemName=ezshine.ilovejuejin) 体验。
+
+如果您的英语不好，也会写出 **KedouBot** 这么 low 的类名，说明英语一定不好，可以尝试下我的 vscode扩展 [**会了吧**](https://marketplace.visualstudio.com/items?itemName=mqycn.huile8)，在github的项目地址：https://github.com/mqycn/huile8。
 
 ## 安装说明
 
